@@ -1,0 +1,26 @@
+import org.jetbrains.capitolio.*;
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://localhost:8081/artifactory/test' }
+    }
+    dependencies {
+        classpath "org.jetbrains:Capitolio:0.1.0-20160801.131106-1"
+    }
+}
+
+
+dependencies {
+
+}
+
+task hello << {
+    println "hello"
+    def host = new LocalHost()
+    println host.host
+}
+
+group = 'org.jetbrains.teamcity'
+version = "0.1.0-SNAPSHOT"
+apply plugin: 'maven-publish'
