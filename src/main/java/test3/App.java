@@ -1,6 +1,6 @@
 package test3;
 
-import org.jetbrains.Capitolio.*;
+import org.jetbrains.capitolio.*;
 
 /**
  * Hello world!
