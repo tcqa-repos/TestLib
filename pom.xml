@@ -12,7 +12,7 @@
     <repositories>
         <repository>
             <id>test</id>
-            <url>http://localhost:8081/artifactory/test</url>
+            <url>http://repo.labs.intellij.net/teamcity</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -31,8 +31,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>Capitolio</artifactId>
+            <groupId>org.jetbrains.teamcity</groupId>
+            <artifactId>capitolio</artifactId>
             <version>0.1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

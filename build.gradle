@@ -1,18 +1,27 @@
-import org.jetbrains.capitolio.*;
+import org.jetbrains.teamcity.capitolio.LocalHost
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
 
 buildscript {
     repositories {
         mavenCentral()
-        maven { url 'http://localhost:8081/artifactory/test' }
+        maven { url 'http://repo.labs.intellij.net/teamcity' }
     }
     dependencies {
-        classpath "org.jetbrains:Capitolio:0.1.0-20160801.131106-1"
+        //classpath "org.jetbrains:Capitolio:0.1.0-20160801.131106-1"
+        classpath "org.jetbrains.teamcity:capitolio:latest.integration"
+        classpath("org.jetbrains.teamcity:capitolio:0.1.0-SNAPSHOT") { changing = true }
+        //classpath files("capitolio-0.1.0-SNAPSHOT.jar")
     }
 }
 
+apply plugin: 'java'
 
 dependencies {
-
+    compile group: 'org.jetbrains.teamcity', name: 'capitolio', version: 'latest.integration'
+    compile group: 'org.jetbrains.teamcity', name: 'capitolio', version: 'capitolio:0.1.0-SNAPSHOT'
 }
 
 task hello << {
@@ -21,6 +30,6 @@ task hello << {
     println host.host
 }
 
-group = 'org.jetbrains.teamcity'
-version = "0.1.0-SNAPSHOT"
-apply plugin: 'maven-publish'
+//group = 'org.jetbrains.teamcity'
+//version = "0.1.0-SNAPSHOT"
+//apply plugin: 'maven-publish'
